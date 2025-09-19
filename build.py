@@ -4,6 +4,9 @@ import shutil
 from markdown_it import MarkdownIt
 
 md = MarkdownIt("gfm-like")
+not_affiliated_with = ("GitHub", "Twemoji", "Twitter")
+notice = "\n\n---\n**Notice:** This site uses assets from the following companies: " + ", ".join(not_affiliated_with) + ". " \
+         "I am not affiliated with them in any way. All trademarks, logos, and assets remain the property of their respective owners.\n"
 
 # html template
 template = r"""
@@ -28,13 +31,18 @@ template = r"""
 <style>
 /* hide until theme applied */
 html {{ visibility: hidden; }}
+footer {{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}}
 
 /* CSS variables for theme */
 :root {{
     --bg-color: #fdfdfd;
     --text-color: #222222;
     --link-color: #1a73e8;
-    --nav-bg: #f7f7f7;
+    --nav-bg: #d7d7d7;
     --footer-color: #555;
     --code-bg: #d8d8d8;
     --table-bg: #ffffff;
@@ -116,9 +124,10 @@ nav {{
 }}
 
 .license-reminder {{
-    display: inline-block;
-    margin-left: calc(4em * 5.5);
+    display: block;          
+    margin: 8px auto 0 auto;  
     padding: 2px 4px;
+    text-align: center;   
 }}
 
 /* nav container */
@@ -209,6 +218,44 @@ tr:nth-child(even) {{ background-color: var(--table-alt-bg); }}
 }}
 #menu-toggle:hover {{ box-shadow: 0 4px 10px rgba(0,0,0,0.3); }}
 
+#footer-buttons {{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center; 
+}}
+
+.footer-btn {{
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: var(--nav-bg);
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.2s, color 0.3s;
+}}
+
+.footer-btn img {{
+    height: 20px;
+    width: 20px;
+    margin-right: 6px;
+    transition: filter 0.3s;
+}}
+
+.footer-btn:hover {{
+    background-color: rgba(255,255,255,0.1);  
+    transform: translateY(-1px);          
+}}
+
+.footer-btn:visited {{
+    color: var(--text-color);
+}}
+
+html[data-theme='light'] .footer-btn img {{ filter: invert(0); }}
+html[data-theme='dark'] .footer-btn img {{ filter: invert(1); }}
+
 @media (max-width:768px) {{
     nav {{ position: fixed; left:0; top:0; height:100%; transform:translateX(-100%); z-index:1000; }}
     nav.open {{ transform: translateX(0); }}
@@ -238,6 +285,14 @@ tr:nth-child(even) {{ background-color: var(--table-alt-bg); }}
 <main id="app">
 {content}
 <footer>
+  <div id="footer-buttons">
+    <a href="https://github.com/akaruinekooff/python-shit-proposals" target="_blank" class="footer-btn">
+      <img src="icons/github-mark.svg" alt="GitHub Repo" /> GitHub Repo
+    </a>
+    <a href="https://github.com/BrightCat14/" target="_blank" class="footer-btn">
+      <img src="icons/github-mark.svg" alt="GitHub" /> GitHub
+    </a>
+  </div>
 <a href="LICENSE.html" class="license-reminder">See LICENSE</a>
 </footer>
 </main>
@@ -333,5 +388,6 @@ for md_file in sorted(psp_dir.glob("*.md")):
 # convert LICENSE if exists
 if Path("LICENSE").exists():
     license_text = Path("LICENSE").read_text(encoding="utf-8")
+    license_text += notice
     license_html = render_md(license_text)
     (output_dir / "LICENSE.html").write_text(template.format(title="LICENSE", content=license_html, nav_links=nav_links), encoding="utf-8")
