@@ -37,6 +37,9 @@ jobs:
       - name: Build site
         run: python build.py "html" "https://akaruinekooff.github.io/python-shit-proposals/"
 
+      - name: List HTML folder
+        run: ls -R html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
