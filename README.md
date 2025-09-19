@@ -31,7 +31,7 @@ Here’s what we’ve “documented” so far:
 | 0006  | Shit Classes & OOP                     |
 | 0007  | Shit Modules & Packaging               |
 | 0008  | Shit Type Hints & Annotations          |
-| 0009  | Shit Logging & Debugging (coming soon) |
+| 0009  | Shit Async Programming (coming soon)   |
 
 ---
 
