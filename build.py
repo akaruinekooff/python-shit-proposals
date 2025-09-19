@@ -1,3 +1,5 @@
+import json
+import os.path
 import sys
 from pathlib import Path
 import shutil
@@ -10,7 +12,18 @@ notice = "\n\n---\n**Notice:** This site uses assets from the following companie
 
 template_path = Path("resources/template.thtml")
 
-base_url = sys.argv[2] if len(sys.argv) > 2 else "https://akaruinekooff.github.io/python-shit-proposals/"
+def replace_in_obj(obj, old, new):
+    if isinstance(obj, dict):
+        return {k: replace_in_obj(v, old, new) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [replace_in_obj(elem, old, new) for elem in obj]
+    elif isinstance(obj, str):
+        return obj.replace(old, new)
+    else:
+        return obj
+
+# im stoopid, I maked this, but we can just parse web manifest, ok, im fine(fire)
+base_url = sys.argv[2] if len(sys.argv) > 2 else ""
 
 # html template
 template = template_path.read_text(encoding="utf-8")
@@ -26,6 +39,12 @@ output_dir.mkdir(exist_ok=True)
 
 # copy files needed for site
 shutil.copytree(Path("resources/site"), output_dir, dirs_exist_ok=True)
+
+# modify web manifest
+file_path = Path(os.path.join(output_dir, "site.webmanifest"))
+manifest_data = json.loads(file_path.read_text(encoding="utf-8"))
+manifest_data = replace_in_obj(manifest_data, "{base_url}", base_url)
+file_path.write_text(json.dumps(manifest_data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 # collect nav links
 nav_links = '<li><a href="index.html">Introduction</a></li>\n'
