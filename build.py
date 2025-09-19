@@ -7,7 +7,7 @@ from markdown_it import MarkdownIt
 
 md = MarkdownIt("gfm-like")
 not_affiliated_with = ("GitHub", "Twemoji", "Twitter")
-notice = "\n\n---\n**Notice:** This site uses assets from the following companies: " + ", ".join(not_affiliated_with) + ". " \
+notice = "\n\n---\n**Notice:** This site uses assets or modified from the following companies: " + ", ".join(not_affiliated_with) + ". " \
          "I am not affiliated with them in any way. All trademarks, logos, and assets remain the property of their respective owners.\n"
 
 template_path = Path("resources/template.thtml")
