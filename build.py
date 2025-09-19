@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-
+import shutil
 from markdown_it import MarkdownIt
 
 md = MarkdownIt("gfm-like")
@@ -12,6 +12,18 @@ template = r"""
 <head>
 <meta charset="UTF-8">
 <title>{title}</title>
+
+<meta name="title" content="{title}">
+<meta name="description" content="Python shit proposals are a guide to how to write really shitty code.">
+<meta name="keywords" content="code, python, bad examples, proposals, shit">
+<meta name="language" content="English">
+
+<!-- shh dont tell anyone about "/" -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
 <link id="themeLink" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
 <style>
 /* hide until theme applied */
@@ -286,23 +298,31 @@ document.querySelectorAll('nav a').forEach(a=>{{
 
 # directories
 psp_dir = Path("PSPs")
+resources_site_dir = Path("resources/site/*")
+
+# some magic with output_dir
 output_dir = Path(sys.argv[1] if len(sys.argv) > 1 else "html")
+if output_dir.exists():
+    shutil.rmtree(output_dir)
 output_dir.mkdir(exist_ok=True)
+
+# copy files needed for site
+shutil.copytree("resources/site", output_dir, dirs_exist_ok=True)
 
 # collect nav links
 nav_links = '<li><a href="index.html">Introduction</a></li>\n'
 for md_file in sorted(psp_dir.glob("*.md")):
     nav_links += f'<li><a href="{md_file.stem}.html">{md_file.stem}</a></li>\n'
 
-def render_md(text):
+def render_md(markdown):
     return md.render(
-        text
+        markdown
     )
 
 # convert README.md to index.html
 readme_text = Path("README.md").read_text(encoding="utf-8")
 readme_html = render_md(readme_text)
-(output_dir / "index.html").write_text(template.format(title="Introduction", content=readme_html, nav_links=nav_links), encoding="utf-8")
+(output_dir / "index.html").write_text(template.format(title="Python Shit Proposals", content=readme_html, nav_links=nav_links), encoding="utf-8")
 
 # convert PSP markdown files
 for md_file in sorted(psp_dir.glob("*.md")):
