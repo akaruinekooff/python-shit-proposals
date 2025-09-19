@@ -10,6 +10,8 @@ notice = "\n\n---\n**Notice:** This site uses assets from the following companie
 
 template_path = Path("resources/template.thtml")
 
+base_url = sys.argv[2] if len(sys.argv) > 2 else "https://akaruinekooff.github.io/python-shit-proposals/"
+
 # html template
 template = template_path.read_text(encoding="utf-8")
 
@@ -38,17 +40,17 @@ def render_md(markdown):
 # convert README.md to index.html
 readme_text = Path("README.md").read_text(encoding="utf-8")
 readme_html = render_md(readme_text)
-(output_dir / "index.html").write_text(template.format(title="Python Shit Proposals", content=readme_html, nav_links=nav_links), encoding="utf-8")
+(output_dir / "index.html").write_text(template.format(title="Python Shit Proposals", content=readme_html, nav_links=nav_links, base_url=base_url), encoding="utf-8")
 
 # convert PSP markdown files
 for md_file in sorted(psp_dir.glob("*.md")):
     text = md_file.read_text(encoding="utf-8")
     html_content = render_md(text)
-    (output_dir / (md_file.stem + ".html")).write_text(template.format(title=md_file.stem, content=html_content, nav_links=nav_links), encoding="utf-8")
+    (output_dir / (md_file.stem + ".html")).write_text(template.format(title=md_file.stem, content=html_content, nav_links=nav_links, base_url=base_url), encoding="utf-8")
 
 # convert LICENSE if exists
 if Path("LICENSE").exists():
     license_text = Path("LICENSE").read_text(encoding="utf-8")
     license_text += notice
     license_html = render_md(license_text)
-    (output_dir / "LICENSE.html").write_text(template.format(title="LICENSE", content=license_html, nav_links=nav_links), encoding="utf-8")
+    (output_dir / "LICENSE.html").write_text(template.format(title="LICENSE", content=license_html, nav_links=nav_links, base_url=base_url), encoding="utf-8")

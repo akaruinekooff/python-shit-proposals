@@ -9,11 +9,10 @@
 <meta name="keywords" content="code, python, bad examples, proposals, shit">
 <meta name="language" content="English">
 
-<!-- shh dont tell anyone about "/" -->
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="{base_url}favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{base_url}favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{base_url}apple-touch-icon.png">
+<link rel="manifest" href="{base_url}site.webmanifest">
 
 <link id="themeLink" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
 <style>
@@ -275,10 +274,10 @@ html[data-theme='dark'] .footer-btn img {{ filter: invert(1); }}
 <footer>
   <div id="footer-buttons">
     <a href="https://github.com/akaruinekooff/python-shit-proposals" target="_blank" class="footer-btn">
-      <img src="icons/github-mark.svg" alt="GitHub Repo" /> GitHub Repo
+      <img src="{base_url}icons/github-mark.svg" alt="GitHub Repo" /> GitHub Repo
     </a>
     <a href="https://github.com/BrightCat14/" target="_blank" class="footer-btn">
-      <img src="icons/github-mark.svg" alt="GitHub" /> GitHub
+      <img src="{base_url}icons/github-mark.svg" alt="GitHub" /> GitHub
     </a>
   </div>
 <a href="LICENSE.html" class="license-reminder">See LICENSE</a>
