@@ -51,8 +51,8 @@ Here’s what we’ve “documented” so far:
 
 Feel free to add new PSPs:
 
-* PSP-0008: Shit Type Hints & Annotations
 * PSP-0009: Shit Async Programming
 * PSP-0010: Shit Decorators
+* PSP-0011: Shit Logging & Debugging
 
-> All contributions must be as unreadable and chaotic as possible.
+> All contributions may be as unreadable and chaotic as possible.
