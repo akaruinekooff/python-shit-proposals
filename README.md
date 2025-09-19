@@ -21,16 +21,17 @@ Think of it as:
 
 Here’s what we’ve “documented” so far:
 
-| PSP # | Title                                         |
-| ----- | --------------------------------------------- |
-| 0001  | The Zen of Shitcode                           |
-| 0002  | Shit Naming Convention                        |
-| 0003  | Shit Control Flow                             |
-| 0004  | Shit Imports                                  |
-| 0005  | Shit Exceptions                               |
-| 0006  | Shit Classes & OOP                            |
-| 0007  | Shit Modules & Packaging                      |
-| 0008  | Shit Type Hints & Annotations *(coming soon)* |
+| PSP # | Title                                  |
+|-------|----------------------------------------|
+| 0001  | The Zen of Shitcode                    |
+| 0002  | Shit Naming Convention                 |
+| 0003  | Shit Control Flow                      |
+| 0004  | Shit Imports                           |
+| 0005  | Shit Exceptions                        |
+| 0006  | Shit Classes & OOP                     |
+| 0007  | Shit Modules & Packaging               |
+| 0008  | Shit Type Hints & Annotations          |
+| 0009  | Shit Logging & Debugging (coming soon) |
 
 ---
 
