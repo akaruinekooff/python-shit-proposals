@@ -258,7 +258,7 @@ html[data-theme='dark'] .footer-btn img {{ filter: invert(1); }}
 .search-box {{
   display: flex;
   align-items: center;
-  background: #fff;
+  background: var(--nav-bg);
   border: 2px solid #ddd;
   border-radius: 12px;
   padding: 6px 10px;
