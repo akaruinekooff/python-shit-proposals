@@ -21,6 +21,13 @@ fetch('psp_list.json')
 
     function render(filter = "") {
       nav.innerHTML = "";
+      const liIntro = document.createElement('li');
+      const aIntro = document.createElement('a');
+      aIntro.href = "index.html";
+      aIntro.textContent = "Introduction";
+      liIntro.appendChild(aIntro);
+      nav.appendChild(liIntro);
+
       const filtered = pspList.filter(psp =>
         psp.title.toLowerCase().includes(filter.toLowerCase())
       );
