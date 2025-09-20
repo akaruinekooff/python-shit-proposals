@@ -11,6 +11,7 @@ fetch('psp_list.json')
     icon.textContent = "🔍";
 
     const searchInput = document.createElement('input');
+    searchInput.name = "search";
     searchInput.type = "text";
     searchInput.placeholder = "Search PSP...";
 
