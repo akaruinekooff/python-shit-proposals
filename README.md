@@ -33,6 +33,7 @@ Here’s what we’ve “documented” so far:
 | 0008  | Shit Type Hints & Annotations |
 | 0009  | Shit Async Programming        |
 | 0010  | Shit Decorators (coming soon) |
+
 and so on...
 
 ---
