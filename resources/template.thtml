@@ -325,6 +325,9 @@ html[data-theme='dark'] .footer-btn img {{ filter: invert(1); }}
     <a href="https://github.com/BrightCat14/" target="_blank" class="footer-btn">
       <img src="{base_url}icons/github-mark.svg" alt="GitHub" /> GitHub
     </a>
+    <a href="https://www.reddit.com/r/python_shit_proposals/" target="_blank" class="footer-btn">
+      <img src="{base_url}icons/reddit.png" alt="Reddit" /> Reddit
+    </a>
   </div>
 <a href="LICENSE.html" class="license-reminder">See LICENSE</a>
 </footer>
