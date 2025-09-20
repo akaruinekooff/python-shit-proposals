@@ -253,6 +253,36 @@ html[data-theme='dark'] .footer-btn img {{ filter: invert(1); }}
     #menu-toggle {{ display:block; }}
     main {{ padding: 20px; }}
 }}
+
+/* search box shit style */
+.search-box {{
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 6px 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}}
+
+.search-box .icon {{
+  margin-right: 8px;
+  font-size: 1.1em;
+  color: #888;
+}}
+
+.search-box input {{
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1em;
+  background: transparent;
+}}
+
+.search-box input:focus {{
+  color: #000;
+}}
 </style>
 
 <!-- Apply saved theme immediately to html -->

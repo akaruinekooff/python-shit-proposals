@@ -3,10 +3,21 @@ fetch('psp_list.json')
   .then(res => res.json())
   .then(pspList => {
     const nav = document.querySelector("nav ul");
+    const searchBox = document.createElement('div');
+    searchBox.className = "search-box";
+
+    const icon = document.createElement('span');
+    icon.className = "icon";
+    icon.textContent = "🔍";
+
     const searchInput = document.createElement('input');
+    searchInput.type = "text";
     searchInput.placeholder = "Search PSP...";
-    searchInput.style.marginBottom = "12px";
-    nav.parentNode.insertBefore(searchInput, nav);
+
+    searchBox.appendChild(icon);
+    searchBox.appendChild(searchInput);
+
+    nav.parentNode.insertBefore(searchBox, nav);
 
     function render(filter = "") {
       nav.innerHTML = "";
