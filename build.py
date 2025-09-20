@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 from markdown_it import MarkdownIt
 
-not_affiliated_with = ("GitHub", "Twitter")
+not_affiliated_with = ("GitHub", "Twitter", "FreePik", "Reddit")
 notice = "\n\n---\n**Notice:** This site uses assets or modified assets from the following companies: " + ", ".join(not_affiliated_with) + ". " \
          "I am not affiliated with them in any way. All trademarks, logos, and assets remain the property of their respective owners.\n"
 
