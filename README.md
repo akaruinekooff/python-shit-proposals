@@ -21,17 +21,19 @@ Think of it as:
 
 Here’s what we’ve “documented” so far:
 
-| PSP # | Title                                  |
-|-------|----------------------------------------|
-| 0001  | The Zen of Shitcode                    |
-| 0002  | Shit Naming Convention                 |
-| 0003  | Shit Control Flow                      |
-| 0004  | Shit Imports                           |
-| 0005  | Shit Exceptions                        |
-| 0006  | Shit Classes & OOP                     |
-| 0007  | Shit Modules & Packaging               |
-| 0008  | Shit Type Hints & Annotations          |
-| 0009  | Shit Async Programming (coming soon)   |
+| PSP # | Title                         |
+|-------|-------------------------------|
+| 0001  | The Zen of Shitcode           |
+| 0002  | Shit Naming Convention        |
+| 0003  | Shit Control Flow             |
+| 0004  | Shit Imports                  |
+| 0005  | Shit Exceptions               |
+| 0006  | Shit Classes & OOP            |
+| 0007  | Shit Modules & Packaging      |
+| 0008  | Shit Type Hints & Annotations |
+| 0009  | Shit Async Programming        |
+| 0010  | Shit Decorators (coming soon) |
+and so on...
 
 ---
 
@@ -52,8 +54,8 @@ Here’s what we’ve “documented” so far:
 
 Feel free to add new PSPs:
 
-* PSP-0009: Shit Async Programming
 * PSP-0010: Shit Decorators
 * PSP-0011: Shit Logging & Debugging
+* PSP-0012: Shit Configuration & Environment
 
 > All contributions may be as unreadable and chaotic as possible.
