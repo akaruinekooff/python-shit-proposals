@@ -5,6 +5,14 @@ import sys
 from pathlib import Path
 from markdown_it import MarkdownIt
 
+introduction = """
+<li><a href="index.html" class="active">Introduction</a></li>
+"""
+
+not_affiliated_with = ("GitHub", "Twitter")
+notice = "\n\n---\n**Notice:** This site uses assets or modified assets from the following companies: " + ", ".join(not_affiliated_with) + ". " \
+         "I am not affiliated with them in any way. All trademarks, logos, and assets remain the property of their respective owners.\n"
+
 # initialize Markdown parser
 md = MarkdownIt("gfm-like")
 
@@ -63,7 +71,7 @@ file_path.write_text(json.dumps(manifest_data, ensure_ascii=False, indent=2), en
 readme_text = Path("README.md").read_text(encoding="utf-8")
 readme_html = render_md(readme_text)
 (output_dir / "index.html").write_text(
-    template.format(title="Python Shit Proposals", content=readme_html, nav_links="", base_url=base_url),
+    template.format(title="Python Shit Proposals", content=readme_html, nav_links=introduction, base_url=base_url),
     encoding="utf-8"
 )
 
@@ -72,15 +80,16 @@ for md_file in sorted(psp_dir.glob("*.md")):
     text = md_file.read_text(encoding="utf-8")
     html_content = render_md(text)
     (output_dir / f"{md_file.stem}.html").write_text(
-        template.format(title=md_file.stem, content=html_content, nav_links="", base_url=base_url),
+        template.format(title=md_file.stem, content=html_content, nav_links=introduction, base_url=base_url),
         encoding="utf-8"
     )
 
 # LICENSE conversion if exists
 if Path("LICENSE").exists():
     license_text = Path("LICENSE").read_text(encoding="utf-8")
+    license_text += notice
     license_html = render_md(license_text)
     (output_dir / "LICENSE.html").write_text(
-        template.format(title="LICENSE", content=license_html, nav_links="", base_url=base_url),
+        template.format(title="LICENSE", content=license_html, nav_links=introduction, base_url=base_url),
         encoding="utf-8"
     )
