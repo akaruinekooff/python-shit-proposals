@@ -17,6 +17,7 @@
 <link rel="manifest" href="{base_url}site.webmanifest">
 
 <link id="themeLink" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+<script src="{base_url}menu.js"></script>
 
 <style>
 /* hide until theme applied */
