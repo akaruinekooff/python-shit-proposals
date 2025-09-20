@@ -258,18 +258,21 @@ html[data-theme='dark'] .footer-btn img {{ filter: invert(1); }}
 .search-box {{
   display: flex;
   align-items: center;
-  background: var(--nav-bg);
-  border: 2px solid #ddd;
+  background: var(--table-alt-bg);
+  border: 2px solid var(--code-bg);
   border-radius: 12px;
   padding: 6px 10px;
   margin-bottom: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: background 0.3s, border 0.3s;
 }}
 
 .search-box .icon {{
   margin-right: 8px;
   font-size: 1.1em;
-  color: #888;
+  color: var(--text-color);
+  opacity: 0.6;
+  transition: color 0.3s, opacity 0.3s;
 }}
 
 .search-box input {{
@@ -278,10 +281,18 @@ html[data-theme='dark'] .footer-btn img {{ filter: invert(1); }}
   flex: 1;
   font-size: 1em;
   background: transparent;
+  color: var(--text-color);
+}}
+
+.search-box input::placeholder {{
+  color: var(--text-color);
+  opacity: 0.5;
 }}
 
 .search-box input:focus {{
-  color: #000;
+  color: var(--text-color);
+  border: none;
+  outline: none;
 }}
 </style>
 
