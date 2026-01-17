@@ -35,7 +35,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build site
-        run: python build.py "html" "https://akaruinekooff.github.io/python-shit-proposals/"
+        run: python build.py "html" "https://akaruineko.space/python-shit-proposals/"
 
       - name: List HTML folder
         run: ls -R html
